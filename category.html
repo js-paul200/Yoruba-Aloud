@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boot-strap cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- line awesome cdn -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <link rel="stylesheet" href="dashboard.css">
+    <title>Category</title>
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+       <div class="sidebar-name">
+       Yoruba Aloud
+       </div>
+
+
+       <!-- side bar section begin -->
+       <div class="sidebar-content">
+       <ul>
+            <li>
+             <a href="dashboard.html"><span class="lar la-chart-bar" style="color: #b6cc00;"></span><span>Dashboard</span></a>
+            </li>
+            <li>
+               <a href="category.html" style="text-decoration: none;"><span class="las la-layer-group" style="color: #b6cc00;"></span><span>Categories</span></a>
+              </li>
+            <li>
+             <a href="learning.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Learning Materials</span></a>
+            </li>
+            <li>
+                <a href="quiz.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Quiz</span></a>
+            </li>
+            <li>
+                <a href="admin.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Admin Profile</span></a>
+            </li>
+            <li>
+             <a onclick="logout(event)" style="text-decoration: none;"><span class="las la-lock" style="color: #b6cc00;"></span>
+                <span class="lock">
+                    <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                        <span class="sr-only"></span>
+                    </div>
+                    Logout
+                </span></a>
+            </li>
+       </ul>
+    </div>
+    </div>
+    <!-- side bar section ends -->
+
+   <!-- main section begins -->
+    <div class="main-section">
+       <header>
+        <h2>
+            <!-- toggle bars icon -->
+                    <label for="nav-toggle">
+                        <span class="las la-bars"></span>
+                    </label>
+                    <span id="title">Yorubaaloud</span>
+                </h2>
+        </header>
+
+       <main>
+        <!-- cards section begins -->
+            <div class="box-cards mb-5">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="las la-clipboard-list" style="color: #b6cc00; font-size: 32px;"></span>
+                        <div>
+                            <h6>Total Categories</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="las la-layer-group" style="color: #b6cc00; font-size: 32px;"></span>
+                        <div>
+                            <h6>learning Materials</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="las la-file-invoice" style="color: #b6cc00; font-size: 32px;"></span>
+                        <div>
+                            <h6>Total Subcategories</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-cards">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="las la-check-square" style="color: #b6cc00; font-size: 32px;"></span>
+                        <div>
+                            <h6>Total Quiz</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="las la-user-graduate" style="color: #b6cc00; font-size: 32px;"></span>
+                        <div>
+                            <h6>Total Students</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="text-center">
+                            <button id="modal-Btn" class="top-three" onclick="studentmodal(event)">
+                            Top three Students
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- card section ends --> 
+        
+            <!-- add category section -->
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                 <h2 class="text-center mt-5">Add Categories</h2>
+                 <form>
+                     
+                     <label for="Email" class="font-poppins font-size-16 font-weight-800">Categories</label>
+                     <input type="text" class= "mb-3" placeholder="Enter Categories Here">
+ 
+                     <label for="Email" class="font-poppins font-size-16 font-weight-800">Category Images</label>
+                     <input type="file" class="input mb-3" placeholder="Enter Categories Here">
+     
+                     <button class="button button-create font-weight-800" type="button" onclick="createCategory(event)">
+                         <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                             <span class="sr-only"></span>
+                         </div>
+                         Create Category
+                     </button>
+                 </form>
+                </div>
+            </div>
+
+            <!-- pop up modal start -->
+            <div id="popup-modal" class="mymodal">
+                <div class="modal-input">
+                    <div class="modal-header">
+                     <h2>Top three student</h2>
+                        <span class="closeBtn">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <div class="allstudent">
+                            <div class="card-details">
+                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
+                            <p><span class="title">Email</span>: <span class="details">matos@gmail.com</span></p>
+                            <p><span class="title">Phone</span>: <span class="details">123456789</span></p>
+                            <p><span class="title">Position</span>: <span class="details">1</span></p>
+                            <p><span class="title">Score</span>: <span class="details">87000</span></p>
+                        </div>
+                        <div class="card-details">
+                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
+                            <p><span class="title">Email</span>: <span class="details">mato3s@gmail.com</span></p>
+                            <p><span class="title">Phone</span>: <span class="details">1234</span></p>
+                            <p><span class="title">Position</span>: <span class="details">2</span></p>
+                            <p><span class="title">Score</span>: <span class="details">30000</span></p>
+                        </div>
+                        <div class="card-details">
+                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
+                            <p><span class="title">Email</span>: <span class="details">matos4@gmail.com</span></p>
+                            <p><span class="title">Phone</span>: <span class="details">987654321</span></p>
+                            <p><span class="title">Position</span>: <span class="details">3</span></p>
+                            <p><span class="title">Score</span>: <span class="details">12000</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- end of pop up modal -->
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <!-- javascript -->
+    <script src="index.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

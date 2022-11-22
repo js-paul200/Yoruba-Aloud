@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: "Short Stack", sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.row {
+    margin: 0;
+    height: 100vh;
+}
+.space {
+    background-color: #2D85DE;
+}
+.sign-img{
+    padding: 4rem 6rem;
+}
+
+
+.space2 {
+    background: url('/assets/background.jpeg') no-repeat center center /cover;
+    width: 100%;
+}
+form {
+    width: 70%;
+    margin: 5% auto;
+    background: transparent;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+input, input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #F4F5F6;
+    width: 100%;
+}
+.button-blue {
+    width: 100%;
+    background-color: #2D85DE;
+    color: #ffffff;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: none;
+    padding: 10px;
+    border: none;
+    font-family: "Short Stack", sans-serif;
+}
+.button-blue:hover{
+    background: rgba(15, 191, 250, 0.765);
+}
+#spin{
+    display: none;
+}
+/* media query */
+@media screen and (max-width: 650px) {
+    form {
+        width: 100%;
+    }
+
+    .sign-img {
+        height: 300px;
+        width: 100%;
+    }
+}
