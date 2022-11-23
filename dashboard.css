@@ -223,7 +223,7 @@ table td {
 .lock{
     color: #fff;
 }
-.spin{
+.loglock{
     display: none;
   }
 
@@ -656,3 +656,17 @@ header h2{
         padding-top: 25%;
     }
 }
+
+/* scroll style begins */
+.scroller-box {
+    margin: 20% auto;
+    padding: 20px;
+    box-shadow: rgba(150, 150, 165, 0.5) 0px 7px 29px 0px;
+    border-radius: 20px;
+}
+.scroller-drag {
+    height: 450px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+/* scroll style ends  */

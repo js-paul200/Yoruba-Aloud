@@ -13,6 +13,11 @@
 </head>
 <body>
     <input type="checkbox" id="nav-toggle">
+    <div class="pagemodal">
+        <div class="preloader">
+            <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background:0 0"><circle cx="50" cy="50" r="4.719" fill="none" stroke="#1d3f72" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3" keySplines="0 0.2 0.8 1" begin="-1.5s" repeatCount="indefinite"/><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3" keySplines="0.2 0 0.8 1" begin="-1.5s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="27.591" fill="none" stroke="#5699d2" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite"/></circle></svg>
+        </div>
+    </div>
     <div class="sidebar">
        <div class="sidebar-name">
        Yoruba Aloud
@@ -40,7 +45,7 @@
             <li>
              <a onclick="logout(event)" style="text-decoration: none;"><span class="las la-lock" style="color: #b6cc00;"></span>
                 <span class="lock">
-                    <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                    <div class="spinner-border spinner-border-sm text-light loglock" role="status">
                         <span class="sr-only"></span>
                     </div>
                     Logout
@@ -59,7 +64,7 @@
                     <label for="nav-toggle">
                         <span class="las la-bars"></span>
                     </label>
-                    <span id="title">Yorubaaloud</span>
+                    <span id="adminId"></span>
                 </h2>
         </header>
 
@@ -71,6 +76,7 @@
                         <span class="las la-clipboard-list" style="color: #b6cc00; font-size: 32px;"></span>
                         <div>
                             <h6>Total Categories</h6>
+                            <p class="category"></p>
                         </div>
                     </div>
                 </div>
@@ -79,6 +85,7 @@
                         <span class="las la-layer-group" style="color: #b6cc00; font-size: 32px;"></span>
                         <div>
                             <h6>learning Materials</h6>
+                            <p class="learn"></p>
                         </div>
                     </div>
                 </div>
@@ -87,6 +94,7 @@
                         <span class="las la-file-invoice" style="color: #b6cc00; font-size: 32px;"></span>
                         <div>
                             <h6>Total Subcategories</h6>
+                            <p class="total"></p>
                         </div>
                     </div>
                 </div>
@@ -97,6 +105,7 @@
                         <span class="las la-check-square" style="color: #b6cc00; font-size: 32px;"></span>
                         <div>
                             <h6>Total Quiz</h6>
+                            <p class="quiz"></p>
                         </div>
                     </div>
                 </div>
@@ -105,6 +114,7 @@
                         <span class="las la-user-graduate" style="color: #b6cc00; font-size: 32px;"></span>
                         <div>
                             <h6>Total Students</h6>
+                            <p class="students"></p>
                         </div>
                     </div>
                 </div>
@@ -124,22 +134,33 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                  <h2 class="text-center mt-5">Add Categories</h2>
-                 <form>
+                 <form id="myform">
                      
-                     <label for="Email" class="font-poppins font-size-16 font-weight-800">Categories</label>
-                     <input type="text" class= "mb-3" placeholder="Enter Categories Here">
+                     <label for="Email" id="email" class="font-poppins font-size-16 font-weight-800">Categories</label>
+                     <input type="text" name="category" id="sec" class= "mb-3" placeholder="Enter Categories Here">
  
                      <label for="Email" class="font-poppins font-size-16 font-weight-800">Category Images</label>
-                     <input type="file" class="input mb-3" placeholder="Enter Categories Here">
+                     <input type="file" name="img" id="image" class="input mb-3" placeholder="Enter Categories Here">
      
                      <button class="button button-create font-weight-800" type="button" onclick="createCategory(event)">
-                         <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                         <div class="spinner-border spinner-border-sm text-light loglock"  role="status">
                              <span class="sr-only"></span>
                          </div>
                          Create Category
                      </button>
                  </form>
                 </div>
+                <!-- scroll box begins -->
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="scroller-box">
+                         <div class="scroller-drag">
+                            <div class="scroll-object">
+                                
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <!-- scroll box ends -->
             </div>
 
             <!-- pop up modal start -->

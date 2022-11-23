@@ -122,6 +122,7 @@ function logIn(event) {
         .catch(error => console.log('error', error));
     }
 }
+// function login ends here
 
 // function to pop up for top three students
 var modal = document.getElementById('popup-modal');
@@ -177,11 +178,13 @@ function getDashApi() {
         const total = document.querySelector(".total");
         const quiz = document.querySelector(".quiz");
         const students = document.querySelector(".students");
+        const getAdmin = document.getElementById("adminId")
         category.innerHTML = `${result.total_number_of_categories}`;
         learn.innerHTML = `${result.total_number_of_learningmaterial}`;
         total.innerHTML = `${result.total_number_of_subcategories}`;
         quiz.innerHTML =   `${result.total_number_of_quize}`;
         students.innerHTML = `${result.total_number_of_students}`;
+        getAdmin.innerHTML = `${result.admin_email}`;
 
         mySpin.style.display = "none";
         // styling of fonts
@@ -195,6 +198,7 @@ function getDashApi() {
     .catch(error => console.log('error', error));
 }
 getDashApi();
+// dashboard function api ends here
 
 // function to get top three students
 function getTopThree() {
@@ -241,9 +245,7 @@ function getTopThree() {
 
 }
 getTopThree();
-
-
-
+// top three students function ends here
 
 // function to get all students
 function getAllStudents() {
@@ -290,6 +292,115 @@ function getAllStudents() {
     .catch(error => console.log('error', error));
 }
 getAllStudents();
+// get all students functions ends here
 
 
 
+
+// function to create-category section
+function createCategory(event) {
+    event.preventDefault();
+    const getSpin = document.querySelector(".loglock");
+    getSpin.style.display = "inline-block";
+
+    const categoryName = document.getElementById("sec").value;
+    const getImage = document.getElementById("image").files[0];
+
+    if (categoryName === "" || getImage === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required',
+            confirmButtonColor: '#2D85DE'
+        });
+        getSpin.style.display = "none";
+    }
+    else {
+        const getToken = localStorage.getItem('adminlogin');
+        const token = JSON.parse(getToken);
+        const theToken = token.token;
+
+        const catHeader = new Headers();
+        catHeader.append("Authorization", `Bearer ${theToken}`);
+
+        const formdata = new FormData();
+        formdata.append("name", categoryName);
+        formdata.append("image", getImage);
+
+
+        const dashReq = {
+            method: 'POST',
+            headers: catHeader,
+            body: formdata
+        };
+
+        const url = "https://codesandbox.com.ng/yorubalearning/api/admin/create_category";
+        fetch(url, dashReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if (result.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    text: 'created successfully',
+                    confirmButtonColor: '#2D85DE'
+                })
+                setTimeout(() => {
+                  location.reload();
+                }, 3000)
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Unsuccessful',
+                    confirmButtonColor: '#2D85DE'
+                })
+                getSpin.style.display = "none";
+            }
+            
+        })
+        .catch(error => console.log('error', error));
+
+    }
+}
+
+// function for category list
+function getCatList() {
+    const getScrollItem = document.querySelector(".scroll-object");
+    const getToken = localStorage.getItem('adminlogin');
+    const token = JSON.parse(getToken);
+    const myToken = token.token;
+
+    const listHeaders = new Headers();
+    listHeaders.append("Authorization", `Bearer ${myToken}`);
+
+    const listOptions = {
+        method: 'GET',
+        headers: listHeaders
+    }
+
+    let data = [];
+
+    const url = "https://codesandbox.com.ng/yorubalearning/api/admin/category_list";
+
+    fetch(url, listOptions)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        result?.map((item) => {
+            data += `
+            <div class="search-card">
+              <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
+              <p>${item.name}</p>
+              <div class="text-right">
+                <button class="update-button" onclick="openModal(${item.id})">Update</buton>
+                <button class="delete-button" onclick="deleteCategory(${item.id})">Delete</buton>
+              </div>
+            </div>
+            `
+            getScrollItem.innerHTML = data;
+        })
+    })
+    .catch(error => console.log('error', error));
+}
+
+getCatList();
