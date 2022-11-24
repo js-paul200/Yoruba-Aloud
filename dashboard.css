@@ -12,6 +12,8 @@ body {
     margin: 0;
     scroll-behavior: smooth;
 }
+
+
 /* side bar */
 .sidebar {
     width: 345px;
@@ -45,8 +47,6 @@ body {
     padding-left: 1rem;
 }
 
-
-
 .sidebar-content a {
     padding-left: 1rem;
     display: block;
@@ -66,9 +66,6 @@ body {
     font-size: 1.5rem;
     padding-right: 1rem;
 }
-
-
-
 #nav-toggle:checked + .sidebar {
     width: 70px;
 }
@@ -115,7 +112,6 @@ header {
     z-index: 100;
     transition: left 300ms;
 }
-
 #nav-toggle {
     display: none;
 }
@@ -223,9 +219,10 @@ table td {
 .lock{
     color: #fff;
 }
-.loglock{
+.spin{
     display: none;
-  }
+}
+
 
 /* media query */
 @media screen and (max-width: 1200px) {
@@ -271,7 +268,6 @@ table td {
 
     header h2 label {
         display: inline-block;
-        background: var(--main-color);
         padding-left: 0rem;
         margin-right: 1rem;
         height: 40px;
@@ -540,20 +536,6 @@ header h2{
 @keyframes rotate-astronaut{
     100% { -webkit-transform: rotate(-720deg); transform:rotate(-720deg); }
 }
-
-@-moz-keyframes glow-star {
-    40% { -moz-opacity: 0.3;}
-    90%,100% { -moz-opacity: 1; -moz-transform: scale(1.2);}
-}
-@-webkit-keyframes glow-star {
-    40% { -webkit-opacity: 0.3;}
-    90%,100% { -webkit-opacity: 1; -webkit-transform: scale(1.2);}
-}
-@keyframes glow-star{
-    40% { -webkit-opacity: 0.3; opacity: 0.3;  }
-    90%,100% { -webkit-opacity: 1; opacity: 1; -webkit-transform: scale(1.2); transform: scale(1.2); border-radius: 999999px;}
-}
-
 .spin-earth-on-hover{
     transition: ease 200s !important;
     transform: rotate(-3600deg) !important;
@@ -668,5 +650,32 @@ header h2{
     height: 450px;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.search-card{
+    width: 100%;
+    border-radius: 14.243902206420898px;
+    padding: 20px 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 25px;
+}
+
+.search-card img {
+    width: 100%
+}
+
+.delete-button, .update-button {
+    outline: none !important;
+    border: 0;
+    box-shadow: none;
+    padding: 10px 15px;
+    background-color: rgb(233, 43, 43);
+    color: #fff;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.update-button {
+    background-color: #2D85DE;
 }
 /* scroll style ends  */

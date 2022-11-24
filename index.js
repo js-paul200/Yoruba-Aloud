@@ -300,7 +300,7 @@ getAllStudents();
 // function to create-category section
 function createCategory(event) {
     event.preventDefault();
-    const getSpin = document.querySelector(".loglock");
+    const getSpin = document.querySelector(".spin");
     getSpin.style.display = "inline-block";
 
     const categoryName = document.getElementById("sec").value;

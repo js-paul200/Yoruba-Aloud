@@ -18,7 +18,7 @@
             <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ripple" style="background:0 0"><circle cx="50" cy="50" r="4.719" fill="none" stroke="#1d3f72" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3" keySplines="0 0.2 0.8 1" begin="-1.5s" repeatCount="indefinite"/><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3" keySplines="0.2 0 0.8 1" begin="-1.5s" repeatCount="indefinite"/></circle><circle cx="50" cy="50" r="27.591" fill="none" stroke="#5699d2" stroke-width="2"><animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3" keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3" keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite"/></circle></svg>
         </div>
     </div>
-    <div class="sidebar">
+    <div class="sidebar bg-dark">
        <div class="sidebar-name">
        Yoruba Aloud
        </div>
@@ -45,9 +45,6 @@
             <li>
              <a onclick="logout(event)" style="text-decoration: none;"><span class="las la-lock" style="color: #b6cc00;"></span>
                 <span class="lock">
-                    <div class="spinner-border spinner-border-sm text-light loglock" role="status">
-                        <span class="sr-only"></span>
-                    </div>
                     Logout
                 </span></a>
             </li>
@@ -60,16 +57,16 @@
     <div class="main-section">
        <header>
         <h2>
-            <!-- toggle bars icon -->
-                    <label for="nav-toggle">
-                        <span class="las la-bars"></span>
-                    </label>
-                    <span id="adminId"></span>
-                </h2>
+            <label for="nav-toggle">
+                <span class="las la-bars"></span>
+            </label>
+            <span id="adminId"></span>
+        </h2>
         </header>
 
-       <main>
+
         <!-- cards section begins -->
+        <main>
             <div class="box-cards mb-5">
                 <div class="card">
                     <div class="card-content">
@@ -143,7 +140,7 @@
                      <input type="file" name="img" id="image" class="input mb-3" placeholder="Enter Categories Here">
      
                      <button class="button button-create font-weight-800" type="button" onclick="createCategory(event)">
-                         <div class="spinner-border spinner-border-sm text-light loglock"  role="status">
+                         <div class="spinner-border spinner-border-sm text-light spin"  role="status">
                              <span class="sr-only"></span>
                          </div>
                          Create Category
@@ -155,13 +152,23 @@
                     <div class="scroller-box">
                          <div class="scroller-drag">
                             <div class="scroll-object">
-                                
+                                <div class="search-card">
+                                    <a href="details.html?id=59&amp;name=name">
+                                    <img src="https://codesandbox.com.ng/yorubalearning/public/pictures/20221123_637e3e73d59d3.png" alt="image"></a>
+                                    <p>Images</p>
+                                    <div class="text-right">
+                                      <button class="update-button" onclick="openModal(event)">Update</button>
+                                      <button class="delete-button" onclick="deleteCategory(event)">Delete </button>
+                                   </div>
+                                  </div>
                             </div>
                          </div>
                     </div>
                 </div>
                 <!-- scroll box ends -->
             </div>
+
+            
 
             <!-- pop up modal start -->
             <div id="popup-modal" class="mymodal">
@@ -170,6 +177,7 @@
                      <h2>Top three student</h2>
                         <span class="closeBtn">&times;</span>
                     </div>
+                </div>
                     <div class="modal-body">
                         <div class="allstudent">
                             <div class="card-details">
@@ -196,6 +204,7 @@
                     </div>
                 </div>
             </div>
+        </main>
         </div>
     <!-- end of pop up modal -->
 
