@@ -43,7 +43,7 @@ function signUp(event) {
             body: regData
         }
 
-        const url = "https://codesandbox.com.ng/yorubalearning/api/register_admin";
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/register_admin";
 
         fetch(url, regRequest)
         .then(response => response.json())
@@ -98,7 +98,7 @@ function logIn(event) {
             method: 'POST',
             body: logData
         };
-        const url = "https://codesandbox.com.ng/yorubalearning/api/admin_login";
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin_login";
 
         fetch(url, logReg)
         .then(response => response.json())
@@ -167,7 +167,7 @@ function getDashApi() {
         headers: tokAuth
     };
 
-    const url = "https://codesandbox.com.ng/yorubalearning/api/admin/admin_dashboardapi";
+    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/admin_dashboardapi";
 
     fetch(url, dashReq)
     .then(response => response.json())
@@ -216,7 +216,7 @@ function getTopThree() {
 
     let data = [];
 
-    const url = "https://codesandbox.com.ng/yorubalearning/api/admin/top_three_students";
+    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/top_three_students";
     fetch(url, dashReq)
     .then(response => response.json())
     .then(result => {
@@ -263,7 +263,7 @@ function getAllStudents() {
 
     let data = [];
 
-    const url = "https://codesandbox.com.ng/yorubalearning/api/admin/get_all_students";
+    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/get_all_students";
     fetch(url, dashReq)
     .then(response => response.json())
     .then(result => {
@@ -333,7 +333,7 @@ function createCategory(event) {
             body: formdata
         };
 
-        const url = "https://codesandbox.com.ng/yorubalearning/api/admin/create_category";
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/create_category";
         fetch(url, dashReq)
         .then(response => response.json())
         .then(result => {
@@ -380,7 +380,7 @@ function getCatList() {
 
     let data = [];
 
-    const url = "https://codesandbox.com.ng/yorubalearning/api/admin/category_list";
+    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/category_list";
 
     fetch(url, listOptions)
     .then(response => response.json())
@@ -392,8 +392,8 @@ function getCatList() {
               <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
               <p>${item.name}</p>
               <div class="text-right">
-                <button class="update-button" onclick="openModal(${item.id})">Update</buton>
-                <button class="delete-button" onclick="deleteCategory(${item.id})">Delete</buton>
+                <button class="update-button" onclick="openModal(${item.id})">Update</button>
+                <button class="delete-button" onclick="deleteCategory(${item.id})">Delete</button>
               </div>
             </div>
             `

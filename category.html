@@ -154,7 +154,7 @@
                             <div class="scroll-object">
                                 <div class="search-card">
                                     <a href="details.html?id=59&amp;name=name">
-                                    <img src="https://codesandbox.com.ng/yorubalearning/public/pictures/20221123_637e3e73d59d3.png" alt="image"></a>
+                                    <img src="https://pluralcodesandbox.com/yorubalearning/public/pictures/20221123_637e3e73d59d3.png" alt="image"></a>
                                     <p>Images</p>
                                     <div class="text-right">
                                       <button class="update-button" onclick="openModal(event)">Update</button>
@@ -165,8 +165,36 @@
                          </div>
                     </div>
                 </div>
-                <!-- scroll box ends -->
-            </div>
+                 <!-- scroll box ends -->
+
+
+                <!-- update form  -->
+                <div id="updatemodal" class="updateform">
+                    <div class="update-input">
+                        <div class="update-header">
+                            <h2>Update category</h2>
+                            <span class="exitbtn">&times;</span>
+                        </div>
+                        <form id="udform">
+                     
+                            <label for="Email" id="email" class="font-poppins font-size-16 font-weight-800">Update Name</label>
+                            <input type="text" name="category" id="sec" class= "mb-3" placeholder="Enter Categories Here">
+        
+                            <label for="Email" class="font-poppins font-size-16 font-weight-800"> Update Category Images</label>
+                            <input type="file" name="img" id="image" class="input mb-3" placeholder="Enter Categories Here">
+            
+                            <button class="button button-create font-weight-800" type="button" onclick="Update3Category(event)">
+                                <div class="spinner-border spinner-border-sm text-light spin"  role="status">
+                                    <span class="sr-only"></span>
+                                </div>
+                                Update Category
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+                
+               
 
             
 
@@ -174,32 +202,11 @@
             <div id="popup-modal" class="mymodal">
                 <div class="modal-input">
                     <div class="modal-header">
-                     <h2>Top three student</h2>
+                    <h2>Top three student</h2>
                         <span class="closeBtn">&times;</span>
                     </div>
-                </div>
                     <div class="modal-body">
                         <div class="allstudent">
-                            <div class="card-details">
-                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
-                            <p><span class="title">Email</span>: <span class="details">matos@gmail.com</span></p>
-                            <p><span class="title">Phone</span>: <span class="details">123456789</span></p>
-                            <p><span class="title">Position</span>: <span class="details">1</span></p>
-                            <p><span class="title">Score</span>: <span class="details">87000</span></p>
-                        </div>
-                        <div class="card-details">
-                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
-                            <p><span class="title">Email</span>: <span class="details">mato3s@gmail.com</span></p>
-                            <p><span class="title">Phone</span>: <span class="details">1234</span></p>
-                            <p><span class="title">Position</span>: <span class="details">2</span></p>
-                            <p><span class="title">Score</span>: <span class="details">30000</span></p>
-                        </div>
-                        <div class="card-details">
-                            <p><span class="title">Name</span>: <span class="details">mat okwesi</span></p>
-                            <p><span class="title">Email</span>: <span class="details">matos4@gmail.com</span></p>
-                            <p><span class="title">Phone</span>: <span class="details">987654321</span></p>
-                            <p><span class="title">Position</span>: <span class="details">3</span></p>
-                            <p><span class="title">Score</span>: <span class="details">12000</span></p>
                         </div>
                     </div>
                 </div>
