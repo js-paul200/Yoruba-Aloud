@@ -784,18 +784,18 @@ form{
 }
 /* media query */
 @media screen and (max-width: 650px) {
-    .catform{
+    .update-input{
         width: 100%;
+        margin-top: 9rem;
+        height: 80vh;
     }
-    .scroller-box{
-        width: 100%;
     
-    }
+    
 }
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {
-    .catform {
-        width: 100%;
+    .update-input {
+        width: 80%;
     }
     /* media query for modal ends here */
 }

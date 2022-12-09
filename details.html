@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
-<body onload="getNameDetails()">
+<body onload="getDetails()">
 
    <input type="checkbox" id="nav-toggle">
     <div class="sidebar bg-dark">
@@ -26,7 +26,7 @@
              <a href="dashboard.html" style="text-decoration: none;"><span class="lar la-chart-bar" style="color: #b6cc00;"></span><span>Dashboard</span></a>
             </li>
             <li>
-               <a href="categories.html" style="text-decoration: none;"><span class="las la-layer-group" style="color: #b6cc00;"></span><span>Categories</span></a>
+               <a href="category.html" style="text-decoration: none;"><span class="las la-layer-group" style="color: #b6cc00;"></span><span>Categories</span></a>
               </li>
             <li>
               <a href="learning.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Learning Materials</span></a>
@@ -62,7 +62,7 @@
                 <label for="Email" class="font-mulish font-size-14 font-weight-600">Subcategory Images</label>
                 <input type="file" name="subImg" id="subImg" class="input mb-3" placeholder="Enter Sub-category Image">
 
-                <button class="button button-blue font-weight-700" type="button" onclick="subCategory(event)">Create Category</button>
+                <button class="button button-blue font-weight-700" type="button" onclick="subCat(event)">Create Category</button>
             </form>
 
             <div class="subItems">
