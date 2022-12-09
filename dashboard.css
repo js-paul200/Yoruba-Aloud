@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
 
 body {
     margin: 0;
@@ -333,11 +333,11 @@ table td {
     }
 }
 /* category section */
-form {
+.catform {
     width: 70%;
     margin: 5% auto;
     background: transparent;
-    padding: 35px;
+    padding: 3rem 2rem;
     border-radius: 15px;
     box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
 }
@@ -726,3 +726,59 @@ input, input:focus {
     width: 100%;
 }
 }
+
+/* update modal */
+form{ 
+    padding: 4rem 5rem; 
+}
+.updateform{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.update-input {
+    margin: 10% auto;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 20%), 0 7px 20px 0 rgb(0 0 0 / 17%);
+    animation-name: modalopen;
+    animation-duration: 4s;
+    height: 55vh;
+    background: #fff;
+}
+.update-header {
+    background: #2D85DE;
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.update-header h2{
+  margin: 0;
+  text-align: center;
+}
+.xbtn{
+    float: right;
+    color: blue;
+    font-size: 30px;
+    cursor: pointer;
+}
+.xbtn:hover,
+.xbtn:focus {
+    color: rgba(127, 201, 226, 0.87);
+    text-decoration: none;
+    cursor: pointer;
+}
+.button-change{
+   float: right;
+   background: #2D85DE;
+   border: none;
+   padding: 0.4rem 1rem;
+   color: #fff;
+}
+

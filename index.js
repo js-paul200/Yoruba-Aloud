@@ -392,7 +392,7 @@ function getCatList() {
               <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
               <p>${item.name}</p>
               <div class="text-right">
-                <button class="update-button" onclick="openModal(${item.id})">Update</button>
+                <button class="update-button" onclick="upmodal(${item.id})">Update</button>
                 <button class="delete-button" onclick="deleteCategory(${item.id})">Delete</button>
               </div>
             </div>
@@ -404,3 +404,78 @@ function getCatList() {
 }
 
 getCatList();
+
+// function for upmodal
+function upmodal(updateId) {
+    localStorage.setItem("upId", updateId);
+    const upform = document.querySelector(".updateform");
+    upform.style.display = "block";
+
+    
+}
+
+
+
+
+// function for updating category
+// function UpdateCategory(event) {
+//     event.preventDefault();
+
+//     const categoryName = document.getElementById("updatemodal").value;
+//     const categoryImageName = document.getElementById("").value;
+//     const categoryImage = document.getElementById("").files[0];
+
+//     if (categoryName === "") {
+//         Swal.fire({
+//             icon: 'info',
+//             text: 'All fields are required',
+//             confirmButtonColor: '#2D85DE'
+//         })
+//     }
+//     else {
+//         const spinRoll = document.querySelector(".spin");
+//         spinRoll.style.display = "inline-block";
+
+//         const upToken = localStorage.getItem('adminlogin');
+//         const getUpToken = JSON.parse(upToken);
+//         const updateToken = getUpToken.token;
+
+//         const updateHeader = new Headers();
+//         updateHeader.append("Authorization", `Bearer ${updateToken}`);
+
+//         const updateData = new FormData();
+//         updateData.append("name", categoryName);
+//         updateData.append("image", categoryImageName);
+//         updateData.append("image", categoryImage);
+//         updateData.append("category_id", getUnique);
+
+//         const updateRequest = {
+//             method: 'POST',
+//             headers: updateHeader,
+//             body: updateData
+//         };
+
+//         console.log(getUnique);
+
+//         const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/update_category";
+
+//         fetch(url, updateRequest)
+//         .then(response => response.json())
+//         .then(result => {
+//             console.log(result)
+//             if (result.status === "success") {
+//                 location.reload();
+//             }
+//             else {
+//                 Swal.fire({
+//                     icon: 'info',
+//                     text: 'Update Unsuccessful!',
+//                     confirmButtonColor: '#2D85DE'
+//                 })
+//             }
+//         })
+//         .catch(error => console.log('error', error));
+//     }
+
+
+// }

@@ -131,7 +131,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
                  <h2 class="text-center mt-5">Add Categories</h2>
-                 <form id="myform">
+                 <form id="myform" class="catform">
                      
                      <label for="Email" id="email" class="font-poppins font-size-16 font-weight-800">Categories</label>
                      <input type="text" name="category" id="sec" class= "mb-3" placeholder="Enter Categories Here">
@@ -152,15 +152,7 @@
                     <div class="scroller-box">
                          <div class="scroller-drag">
                             <div class="scroll-object">
-                                <div class="search-card">
-                                    <a href="details.html?id=59&amp;name=name">
-                                    <img src="https://pluralcodesandbox.com/yorubalearning/public/pictures/20221123_637e3e73d59d3.png" alt="image"></a>
-                                    <p>Images</p>
-                                    <div class="text-right">
-                                      <button class="update-button" onclick="openModal(event)">Update</button>
-                                      <button class="delete-button" onclick="deleteCategory(event)">Delete </button>
-                                   </div>
-                                  </div>
+                               
                             </div>
                          </div>
                     </div>
@@ -173,17 +165,20 @@
                     <div class="update-input">
                         <div class="update-header">
                             <h2>Update category</h2>
-                            <span class="exitbtn">&times;</span>
+                            <span class="xbtn">&times;</span>
                         </div>
+                        <button class="button-change mt-3">Change image</button>
+                        
                         <form id="udform">
+                            
                      
-                            <label for="Email" id="email" class="font-poppins font-size-16 font-weight-800">Update Name</label>
-                            <input type="text" name="category" id="sec" class= "mb-3" placeholder="Enter Categories Here">
+                            <label for="Update" id="email" class="font-poppins font-size-16 font-weight-800">Update Name</label>
+                            <input type="text" name="category" id="updatename" class= "mb-3" placeholder="Enter Categories Here">
         
-                            <label for="Email" class="font-poppins font-size-16 font-weight-800"> Update Category Images</label>
-                            <input type="file" name="img" id="image" class="input mb-3" placeholder="Enter Categories Here">
+                            <label for="category" class="font-poppins font-size-16 font-weight-800"> Update Category Images</label>
+                            <input type="file" name="img" id="updateimage" class="input mb-3" placeholder="Enter Categories Here">
             
-                            <button class="button button-create font-weight-800" type="button" onclick="Update3Category(event)">
+                            <button class="button button-create font-weight-800" type="button" onclick="UpdateCategory(event)">
                                 <div class="spinner-border spinner-border-sm text-light spin"  role="status">
                                     <span class="sr-only"></span>
                                 </div>
