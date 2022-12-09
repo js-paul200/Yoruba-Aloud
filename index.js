@@ -411,51 +411,51 @@ function upmodal(updateId) {
     localStorage.setItem("upId", updateId);
     const upform = document.querySelector(".updateform");
     upform.style.display = "block";
+
+    const getToken = localStorage.getItem('adminlogin');
+    const token = JSON.parse(getToken);
+    const theToken = token.token;
+
+    let third = localStorage.getItem("upId");
+
+
+    const headerItem = new Headers();
+    headerItem.append("Authorization", `Bearer ${theToken}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: headerItem
+
+    };
+
+    const url = `http://pluralcodesandbox.com/yorubalearning/api/admin/get_details?category_id=${third}`;
+    fetch(url, dashReq)
+    .then(response => response.json())
+    .then(result =>
+
+        
+        console.log(result))
+    .catch(error => console.log('error', error));
+
 }
 
 // function to close upmodal
-
-
-
-function closemodal(){
+function lockmodal(){
     let pop = document.querySelector('.updateform');
-
-   pop.style.display = 'none';
+    pop.style.display = 'none';
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // function for updating category
 function UpdateCategory(event) {
     event.preventDefault();
 
-    const categoryName = document.getElementById("updatemodal").value;
-    const categoryImageName = document.getElementById("").value;
-    const categoryImage = document.getElementById("").files[0];
+    const categoryImageName = document.getElementById("updatename").value;
+    const categoryImage = document.getElementById("updateimage").files[0];
 
-    if (categoryName === "") {
+    const theId = localStorage.getItem("upId");
+
+    if (categoryImageName === "") {
         Swal.fire({
             icon: 'info',
             text: 'All fields are required',
@@ -463,9 +463,10 @@ function UpdateCategory(event) {
         })
     }
     else {
-        const spinRoll = document.querySelector(".spin");
+        const spinRoll = document.querySelector(".roller");
         spinRoll.style.display = "inline-block";
 
+    
         const upToken = localStorage.getItem('adminlogin');
         const getUpToken = JSON.parse(upToken);
         const updateToken = getUpToken.token;
@@ -474,19 +475,15 @@ function UpdateCategory(event) {
         updateHeader.append("Authorization", `Bearer ${updateToken}`);
 
         const updateData = new FormData();
-        updateData.append("name", categoryName);
-        updateData.append("image", categoryImageName);
+        updateData.append("name", categoryImageName);
         updateData.append("image", categoryImage);
-        updateData.append("category_id", getUnique);
+        updateData.append("category_id", theId);
 
         const updateRequest = {
             method: 'POST',
             headers: updateHeader,
             body: updateData
         };
-
-        console.log(getUnique);
-
         const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/update_category";
 
         fetch(url, updateRequest)
@@ -506,6 +503,20 @@ function UpdateCategory(event) {
         })
         .catch(error => console.log('error', error));
     }
+}
+// function to delete category
+function deleteCategory(id) {
+    const dcToken = localStorage.getItem('adminlogin');
+    const cutToken = JSON.parse(dcToken);
+    const outToken = cutToken.token;
 
+    const cutHeaders = new Headers();
+    cutHeaders.append("Authorization", `Bearer ${outToken}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: cutHeaders
+    };
+    const url = ``
 
 }
