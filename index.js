@@ -405,77 +405,107 @@ function getCatList() {
 
 getCatList();
 
+
 // function for upmodal
 function upmodal(updateId) {
     localStorage.setItem("upId", updateId);
     const upform = document.querySelector(".updateform");
     upform.style.display = "block";
+}
 
-    
+// function to close upmodal
+
+
+
+function closemodal(){
+    let pop = document.querySelector('.updateform');
+
+   pop.style.display = 'none';
 }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function for updating category
-// function UpdateCategory(event) {
-//     event.preventDefault();
+function UpdateCategory(event) {
+    event.preventDefault();
 
-//     const categoryName = document.getElementById("updatemodal").value;
-//     const categoryImageName = document.getElementById("").value;
-//     const categoryImage = document.getElementById("").files[0];
+    const categoryName = document.getElementById("updatemodal").value;
+    const categoryImageName = document.getElementById("").value;
+    const categoryImage = document.getElementById("").files[0];
 
-//     if (categoryName === "") {
-//         Swal.fire({
-//             icon: 'info',
-//             text: 'All fields are required',
-//             confirmButtonColor: '#2D85DE'
-//         })
-//     }
-//     else {
-//         const spinRoll = document.querySelector(".spin");
-//         spinRoll.style.display = "inline-block";
+    if (categoryName === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required',
+            confirmButtonColor: '#2D85DE'
+        })
+    }
+    else {
+        const spinRoll = document.querySelector(".spin");
+        spinRoll.style.display = "inline-block";
 
-//         const upToken = localStorage.getItem('adminlogin');
-//         const getUpToken = JSON.parse(upToken);
-//         const updateToken = getUpToken.token;
+        const upToken = localStorage.getItem('adminlogin');
+        const getUpToken = JSON.parse(upToken);
+        const updateToken = getUpToken.token;
 
-//         const updateHeader = new Headers();
-//         updateHeader.append("Authorization", `Bearer ${updateToken}`);
+        const updateHeader = new Headers();
+        updateHeader.append("Authorization", `Bearer ${updateToken}`);
 
-//         const updateData = new FormData();
-//         updateData.append("name", categoryName);
-//         updateData.append("image", categoryImageName);
-//         updateData.append("image", categoryImage);
-//         updateData.append("category_id", getUnique);
+        const updateData = new FormData();
+        updateData.append("name", categoryName);
+        updateData.append("image", categoryImageName);
+        updateData.append("image", categoryImage);
+        updateData.append("category_id", getUnique);
 
-//         const updateRequest = {
-//             method: 'POST',
-//             headers: updateHeader,
-//             body: updateData
-//         };
+        const updateRequest = {
+            method: 'POST',
+            headers: updateHeader,
+            body: updateData
+        };
 
-//         console.log(getUnique);
+        console.log(getUnique);
 
-//         const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/update_category";
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/update_category";
 
-//         fetch(url, updateRequest)
-//         .then(response => response.json())
-//         .then(result => {
-//             console.log(result)
-//             if (result.status === "success") {
-//                 location.reload();
-//             }
-//             else {
-//                 Swal.fire({
-//                     icon: 'info',
-//                     text: 'Update Unsuccessful!',
-//                     confirmButtonColor: '#2D85DE'
-//                 })
-//             }
-//         })
-//         .catch(error => console.log('error', error));
-//     }
+        fetch(url, updateRequest)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if (result.status === "success") {
+                location.reload();
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Update Unsuccessful!',
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+        })
+        .catch(error => console.log('error', error));
+    }
 
 
-// }
+}
