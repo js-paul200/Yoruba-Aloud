@@ -441,7 +441,7 @@ function upmodal(updateId) {
     })
     .catch(error => console.log('error', error));
 
-    const popmodal = document.querySelector(".updateform");
+    const popmodal = document.getElementById('updatemodal');
     popmodal.style.display = "block";
 
     
@@ -456,6 +456,7 @@ function lockmodal(){
     let pop = document.querySelector('.updateform');
     pop.style.display = 'none';
 }
+// function to close modalupdate outside
 window.onclick = function outsideClick(e) {
     const pop = document.querySelector('.updateform');
     if (e.target == pop) {
@@ -521,4 +522,44 @@ function UpdateCategory(event) {
         })
         .catch(error => console.log('error', error));
     }
+}
+
+// function to delete 
+function deleteCategory(upId) {
+    const cutToken = localStorage.getItem('adminlogin');
+    const remToken = JSON.parse(cutToken);
+    const movToken = remToken.token;
+
+
+    const cutHeaders = new Headers();
+    cutHeaders.append("Authorization", `Bearer ${movToken}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: cutHeaders
+    };
+
+    const url = `https://pluralcodesandbox.com/yorubalearning/api/admin/delete_category/` + `${upId}`;
+
+    fetch(url, dashReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+
+        if(result.status === "success") {
+            Swal.fire({
+                icon: 'success',
+                text: 'Deleted successfully',
+                confirmButtonColor: '#2D85DE'
+            })
+            location.reload();
+        }else {
+            Swal.fire({
+                icon: 'info',
+                text: 'Delete Unsuccessful!',
+                confirmButtonColor: '#2D85DE'
+            })
+        }
+    })
+    .catch(error => console.log('error', error));
 }
