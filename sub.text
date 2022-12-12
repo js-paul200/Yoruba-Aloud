@@ -1,0 +1,20 @@
+<div id="sub" class="Subcategory">
+            <div class="modal-input">
+                <div class="modal-header">
+                 <h2>Update SubCategory</h2>
+                    <span class="close" onclick="close()">&times;</span>
+                </div>
+                <div class="modal-inputs">
+                 <form id="subForm">
+                 
+                    <label for="updatesubcatName" class="poppins font-size-18 font-weight-300">SubCategory Name</label>
+                    <input type="text" id="updateSubcatName" class="input mb-3">
+
+                    <label for="updatesubcatImage" class="font-poppins font-size-18 font-weight-300">SubCategory Image</label>
+                    <input type="file" name="updateSubcatImage" id="updateSubImage" class="input mb-3">
+    
+                    <button class="button button-sub font-weight-300" onclick="updateSubCat(event)">Update Category</button>
+                 </form>
+                </div>
+            </div>
+        </div>

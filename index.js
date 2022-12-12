@@ -406,7 +406,7 @@ function getCatList() {
 getCatList();
 
 
-// function for display of update category form
+// function for opening of update category form
 function upmodal(updateId) {
     localStorage.setItem("upId", updateId);
     const upform = document.querySelector(".updateform");
@@ -425,7 +425,6 @@ function upmodal(updateId) {
     const dashReq = {
         method: 'GET',
         headers: headerItem
-
     };
 
     const url = `http://pluralcodesandbox.com/yorubalearning/api/admin/get_details?category_id=${third}`;
@@ -433,20 +432,29 @@ function upmodal(updateId) {
     .then(response => response.json())
     .then(result => {
         console.log(result)
-        const categoryName = document.getElementById("updatename");
+
+        // prefilling function for update form modal
+        let categoryName = document.getElementById("updatename");
         categoryName.setAttribute('value', `${result.name}`);
         
-        const categoryImage = document.getElementById("updateimage");
-        categoryImage.setAttribute('value', `${result.image}`);
+        let categoryImageslink = document.getElementById("updateimg");
+        categoryImageslink.setAttribute('value', `${result.image}`)
+
     })
     .catch(error => console.log('error', error));
+}
+// function for change image swtich
+function changeimage(){
+  let change = document.querySelector('.hide-me');
+  change.style.display = 'block';
 
-    const popmodal = document.getElementById('updatemodal');
-    popmodal.style.display = "block";
-
-    
+  let flex = document.querySelector('.show-me');
+  flex.style.display = 'none';
 
 }
+
+
+
 // function to close modal
 
 
@@ -510,7 +518,14 @@ function UpdateCategory(event) {
         .then(result => {
             console.log(result)
             if (result.status === "success") {
-                location.reload();
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Updated successfully',
+                    confirmButtonColor: '#2D85DE'
+                })
+                setTimeout(() => {
+                    location.reload();
+                  }, 3000) 
             }
             else {
                 Swal.fire({
@@ -524,7 +539,7 @@ function UpdateCategory(event) {
     }
 }
 
-// function to delete 
+// function to delete a category
 function deleteCategory(upId) {
     const cutToken = localStorage.getItem('adminlogin');
     const remToken = JSON.parse(cutToken);
@@ -549,14 +564,16 @@ function deleteCategory(upId) {
         if(result.status === "success") {
             Swal.fire({
                 icon: 'success',
-                text: 'Deleted successfully',
+                text: 'deleted successfully',
                 confirmButtonColor: '#2D85DE'
             })
-            location.reload();
+            setTimeout(() => {
+                location.reload();
+              }, 3000)
         }else {
             Swal.fire({
                 icon: 'info',
-                text: 'Delete Unsuccessful!',
+                text: 'Deletion Unsuccessful!',
                 confirmButtonColor: '#2D85DE'
             })
         }

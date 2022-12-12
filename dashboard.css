@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Short+Stack&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 
 body {
     margin: 0;
@@ -11,6 +11,7 @@ body {
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    cursor: pointer;
 }
 
 
@@ -335,7 +336,7 @@ table td {
 }
 /* category section */
 .catform {
-    width: 70%;
+    width: 96%;
     margin: 5% auto;
     background: transparent;
     padding: 3rem 2rem;
@@ -681,52 +682,6 @@ header h2{
 }
 /* scroll style ends  */
 
-.instruct {
-    margin-top: 85px;
-    padding: 2rem 6.5rem;
-    background: #f1f5f9;
-    min-height: calc(200vh - 50px);
-}
-.subcatform {
-    width: 70%;
-    margin: 5% auto;
-    background: transparent;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
-}
-label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
-input, input:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    padding: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: #F4F5F6;
-    width: 100%;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
-}
-.button-blue {
-    width: 100%;
-    background-color: #2D85DE;
-    color: #ffffff;
-    border-radius: 10px;
-    outline: none;
-    box-shadow: none;
-    padding: 10px;
-    border: none;
-    font-family: "Short Stack", sans-serif;
-}
-@media screen and (max-width: 850px) {
-.subcatform {
-    width: 100%;
-}
-}
 
 /* update modal */
 
@@ -783,6 +738,9 @@ form{
    padding: 0.4rem 2rem;
    color: #fff;
 }
+.button-change:hover{
+    background-color: rgb(70, 172, 207);
+}
 /* media query */
 @media screen and (max-width: 650px) {
     .update-input{
@@ -797,6 +755,11 @@ form{
 @media screen and (min-width: 700px) and (max-width: 1000px) {
     .update-input {
         width: 80%;
+        margin-top: 1rem;
     }
     /* media query for modal ends here */
+}
+
+.hide-me {
+    display: none;
 }
