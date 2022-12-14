@@ -580,3 +580,112 @@ function deleteCategory(upId) {
     })
     .catch(error => console.log('error', error));
 }
+
+// function to creating subcategory
+function subCategory(event) {
+    event.preventDefault();
+    const theId = localStorage.getItem("upId");
+
+    const subcatToken = localStorage.getItem('adminlogin');
+    const thecatToken = JSON.parse(subcatToken);
+    const catsubToken = thecatToken.token;
+
+    const subcatname = document.getElementById('subcategoryname').value;
+    const subcatImage = document.getElementById('subcategoryimg').files[0];
+
+    if (subcatname === "" || subcatImage === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required!',
+            confirmButtonColor: '#2D85DE'
+        })
+        
+    }
+    else{
+        const spinRoll = document.querySelector(".rol-spin");
+        spinRoll.style.display = "inline-block";
+
+        const subcatHeaders = new Headers();
+        subcatHeaders.append("Authorization", `Bearer ${catsubToken}`);
+
+        const formData = new FormData();
+        formData.append("name", subcatname);
+        formData.append("image", subcatImage);
+        formData.append("category_id", theId);
+
+        const dashReq = {
+        method: 'POST',
+        headers: subcatHeaders,
+        body: formData
+};
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/create_subcategory";
+        fetch(url, dashReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+
+            if (result.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    text: 'subcategory created successfully',
+                    confirmButtonColor: '#2D85DE'
+                })
+                setTimeout(() => {
+                    location.reload();
+                  }, 3000) 
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Unsuccessful!',
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+        })
+        .catch(error => console.log('error', error));
+
+    }
+}
+
+// function for creating subcategory list
+function createsublist() {
+    const down = document.querySelector('.scroll-objects2')
+    const listsub = localStorage.getItem('adminlogin');
+    const getsubList = JSON.parse(listsub);
+    const subcatList = getsubList.token;
+
+    const subHeader = new Headers();
+    subHeader.append("Authorization", `Bearer ${subcatList}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: subHeader
+    };
+
+    let data = [];
+
+    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/subcategory_list";
+
+    fetch(url, dashReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        result?.map((item) => {
+            data += `
+            <div class="search-card2">
+                    <a href="details.html?id=${item.id}&name=${item.name}"></a>
+                    <img src= alt="image" />
+                    <p>${item.name}</p>
+                    <div class="text-right">
+                        <button class="updatesub-button" onclick="upsub()">Update</button>
+                        <button class="deletesub-button" onclick="deletesubCategory()">Delete</button>
+                    </div>
+                    </div>
+            `
+            getScrollItem.innerHTML = data;
+        })
+    })
+    .catch(error => console.log('error', error));
+}
+createsublist();
+
