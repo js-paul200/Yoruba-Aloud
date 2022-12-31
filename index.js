@@ -647,22 +647,21 @@ function subCategory(event) {
     }
 }
 
-// function for creating subcategory list
-function createsublist() {
-    const down = document.querySelector('.scroll-objects2')
-    const listsub = localStorage.getItem('adminlogin');
-    const getsubList = JSON.parse(listsub);
-    const subcatList = getsubList.token;
 
-    const subHeader = new Headers();
-    subHeader.append("Authorization", `Bearer ${subcatList}`);
+// function for creating subcategory list
+function createSublist(){
+    const getsublist = document.querySelector(".scroller-boxs");
+    const getlistitems = localStorage.getItem('adminlogin');
+    const tokens = JSON.parse(getlistitems);
+    const getlist = tokens.token;
+
+    const subcatHeader = new Headers();
+    subcatHeader.append("Authorization", `Bearer ${getlist}`);
 
     const dashReq = {
         method: 'GET',
-        headers: subHeader
+        headers: subcatHeader
     };
-
-    let data = [];
 
     const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/subcategory_list";
 
@@ -673,19 +672,13 @@ function createsublist() {
         result?.map((item) => {
             data += `
             <div class="search-card2">
-                    <a href="details.html?id=${item.id}&name=${item.name}"></a>
-                    <img src= alt="image" />
-                    <p>${item.name}</p>
-                    <div class="text-right">
-                        <button class="updatesub-button" onclick="upsub()">Update</button>
-                        <button class="deletesub-button" onclick="deletesubCategory()">Delete</button>
-                    </div>
-                    </div>
+              <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
+              <p>${item.name}</p>
+            </div>
             `
-            getScrollItem.innerHTML = data;
+            getsublist.innerHTML = data;
         })
     })
     .catch(error => console.log('error', error));
 }
-createsublist();
-
+createSublist();
