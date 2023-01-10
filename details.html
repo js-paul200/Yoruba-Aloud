@@ -55,7 +55,7 @@
             </h2>
          </header>
 
-         <main>
+         <main class="desk">
             <div class="subname">
                 <form action="subcatform">
                 <label for="name" class="poppins font-size-18 font-weight-600">Subcategory Name</label>
@@ -68,7 +68,7 @@
                     <div class="spinner-border spinner-border-sm text-light rol-spin"  role="status">
                         <span class="sr-only"></span>
                     </div>
-                    Create Category
+                    Create SubCategory
                 </button>
             </form>
             </div>
@@ -79,11 +79,53 @@
                 <div class="scroll-boxs">
                      <div class="scroller-drags">
                         <div class="scroll-objects">
-                            
+                            <div class="row row-item">
+
+                            </div>
                         </div>
                      </div>
                 </div>
             </div>
+
+         <!-- form for update subcategory list -->
+         <div id="updatesubmodal" class="updatesubcatform">
+            <div class="update-subinput">
+                <div class="update-subheader">
+                    <h2>Update Subcategory</h2>
+                    <span class="cut" onclick="cutmodal()">&times;</span>
+                </div>
+              
+                
+                <form id="udform">
+                    
+             
+                    <label for="Update" id="email" class="font-poppins font-size-16 font-weight-800">Update SubcategoryName</label>
+                    <input type="text" name="category" id="updatesubcatname" class= "mb-3" placeholder="Enter Categories Here">
+
+                    <label for="category" class="font-poppins font-size-16 font-weight-800"> Update SubCategory Image</label>
+                    <input type="file" name="img" id="updatesubcatimage" class="input mb-3" placeholder="Enter Categories Here">
+        
+    
+                    <button class="button button-subcat font-weight-800" type="button" onclick="UpdateSubCategory(event)">
+                        <div class="spinner-border spinner-border-sm text-light subroll"  role="status">
+                            <span class="sr-only"></span>
+                        </div>
+                        Update SubCategory
+                    </button>
+                </form>
+            </div>
+
+        </div>
+         
+
+
+
+
+
+
+
+
+
 
 
            <div class="subItems">

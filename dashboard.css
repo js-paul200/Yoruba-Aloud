@@ -220,7 +220,7 @@ table td {
 .lock{
     color: #fff;
 }
-.spin, .roller, .rol-spin{
+.spin, .roller, .rol-spin, .subroll{
     display: none;
 }
 
@@ -767,6 +767,7 @@ form{
 /* subcategory form */
 .subname {
     width: 65%;
+    height: 50vh;
     margin: 5% auto;
     background: transparent;
     padding: 6px;
@@ -798,18 +799,19 @@ label {
 
 }
 /* media query */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 800px) {
     .subname{
-        width: 100%;
+        width: 80%;
+        display: block;
     }
+    
 }
+
 /* sub category list card */
 .scroll-boxs {
-    /* display: flex;
-    flex-direction: column; */
     width: 60vw;
     align-items: center;
-    margin-left: 9rem;
+    margin-left: 5rem;
     padding: 20px;
     box-shadow: rgba(150, 150, 165, 0.5) 0px 7px 29px 0px;
     border-radius: 20px;
@@ -820,7 +822,6 @@ label {
     overflow-y: scroll;
 }
 .search-card2{
-    width: 40%;
     border-radius: 20px;
     padding: 20px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -828,7 +829,7 @@ label {
 }
 
 .search-card2 img {
-    width: 100%
+    width: 100%;
 }
 
 .update-button2 {
@@ -837,9 +838,88 @@ label {
     border: 0;
     box-shadow: none;
     padding: 10px 15px;
-    background-color: rgb(233, 43, 43);
     color: #fff;
     border-radius: 10px;
     margin-left: 10px;
 }
+@media screen and (max-width: 850px){
+    .scroll-boxs{
+        width: 100%;
+    }
+}
 
+/* update form modal for subcategory */
+.updatesubcatform{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.update-subinput {
+    margin: 10% auto;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgb(0 0 0 / 20%), 0 7px 20px 0 rgb(0 0 0 / 17%);
+    height: 55vh;
+    background: #fff;
+}
+.update-subheader {
+    display: flex;
+    justify-content: space-between;
+    background: #2D85DE;
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.update-subheader h2{
+  margin: 0;
+}
+.cut{
+    color: blue;
+    font-size: 30px;
+    cursor: pointer;
+}
+.cut:hover,
+.cut:focus {
+    color: rgba(127, 201, 226, 0.87);
+    text-decoration: none;
+    cursor: pointer;
+}
+.button-subcat{
+   margin-right: 1rem;
+   margin-top: 1rem;
+   float: right;
+   background: #2D85DE;
+   border: none;
+   padding: 0.6rem 1rem;
+   color: #fff;
+}
+
+/* media query */
+@media screen and (max-width: 650px) {
+    .update-subinput{
+        width: 100%;
+        margin-top: 9rem;
+        height: 80vh;
+    }
+    .desk{
+        width: 100%;
+    }    
+}
+
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .update-subinput {
+        width: 80%;
+        margin-top: 1rem;
+    }
+    .desk{
+        width: 80%;
+        
+    }
+    
+}

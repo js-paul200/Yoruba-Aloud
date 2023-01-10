@@ -652,7 +652,8 @@ function subCategory(event) {
 function getSublist(){
     const params = new URLSearchParams(window.location.search);
     let getId = params.get('id');
-    const getSublist = document.querySelector(".scroll-objects");
+
+    const getSublist = document.querySelector(".row-item");
     const getlistitems = localStorage.getItem('adminlogin');
     const tokens = JSON.parse(getlistitems);
     const getlist = tokens.token;
@@ -676,14 +677,15 @@ function getSublist(){
         console.log(result)
         result.map((item) => {
             data += `
-            <div class="search-card2">
-              <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
-              <p>${item.name}</p>
-              <div class="text-right">
-                <button class="update-button2" onclick="updatesubcat(${item.id})">Update</button>
-
-              </div>
-            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="search-card2">
+                <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
+                <p>${item.name}</p>
+                <div class="text-right">
+                    <button class="update-button2" onclick="updatesubcat(${item.id})">Update</button>
+                </div>
+                </div>
+            </div>    
             `
             getSublist.innerHTML = data;
         })
@@ -692,3 +694,113 @@ function getSublist(){
     .catch(error => console.log('error', error));
 }
 getSublist();
+
+
+// function to update a subcategory
+function UpdateSubCategory(event){
+    event.preventDefault();
+
+    const catsubname = document.getElementById("updatesubcatname").value;
+    const catsubimage = document.getElementById("updatesubcatimage").files[0];
+
+    const theId = localStorage.getItem("id");
+
+    
+
+    if (catsubname === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required',
+            confirmButtonColor: '#2D85DE'
+        })
+    }else{
+        const sroll = document.querySelector(".subroll");
+        sroll.style.display = "inline-block";
+    }
+
+        const subcatToken = localStorage.getItem('adminlogin');
+        const subToken = JSON.parse(subcatToken);
+        const updatesubToken = subToken.token;
+
+        const updatesubcatHeader = new Headers();
+        updatesubcatHeader.append("Authorization", `Bearer ${updatesubToken}`);
+
+        const updatesubData = new FormData();
+        updatesubData.append("name", catsubname);
+        updatesubData.append("image", catsubimage);
+        updatesubData.append("subcategory_id", theId);
+
+        const dashReq = {
+            method: 'POST',
+            headers: updatesubcatHeader,
+            body: updatesubData
+        };
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/update_subcategory";
+
+        fetch(url, dashReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if (result.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Subcategory Updated successfully',
+                    confirmButtonColor: '#2D85DE'
+                })
+                setTimeout(() => {
+                    location.reload();
+                  }, 3000) 
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Update Unsuccessful!',
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+        })
+        .catch(error => console.log('error', error));
+}
+
+// function to display subcategory form(popup-modal)
+function updatesubcat(newId) {
+    localStorage.setItem("id", newId);
+    const subcatform = document.querySelector(".updatesubcatform");
+    subcatform.style.display = "block";
+
+    const dToken = localStorage.getItem('adminlogin');
+    const mysubtoken = JSON.parse(dToken);
+    const theToken = mysubtoken.token;
+
+    let fifth = localStorage.getItem("id");
+
+    const subheaderItem = new Headers();
+    subheaderItem.append("Authorization", `Bearer ${theToken}`);
+
+    const dashReq = {
+        method: 'GET',
+        headers: subheaderItem
+    };
+    const url = `https://pluralcodesandbox.com/yorubalearning/api/admin/update_subcategory=${fifth}`;
+
+    fetch(url, dashReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+    })
+    .catch(error => console.log('error', error));
+}
+
+// function to close subcategory form modal
+function cutmodal() {
+    const cut = document.querySelector(".updatesubcatform");
+    cut.style.display = 'none';
+}
+// function close subcategory form modal outside
+
+window.onclick = function outsideClick(e) {
+    const cut = document.querySelector(".updatesubcatform");
+    if (e.target == cut) {
+        cut.style.display = 'none';
+    }
+}
