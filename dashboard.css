@@ -803,10 +803,11 @@ label {
         width: 100%;
     }
 }
-/* sub category scroller box */
-.scroller-boxs {
+/* sub category list card */
+.scroll-boxs {
+    width: 60vw;
     align-items: center;
-    margin: 20% auto;
+    margin-left: 9rem;
     padding: 20px;
     box-shadow: rgba(150, 150, 165, 0.5) 0px 7px 29px 0px;
     border-radius: 20px;
@@ -818,17 +819,17 @@ label {
 }
 .search-card2{
     width: 100%;
-    border-radius: 14.243902206420898px;
+    border-radius: 20px;
     padding: 20px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin-bottom: 25px;
 }
 
-.search-card img {
+.search-card2 img {
     width: 100%
 }
 
-.updatesub-button, .deletesub-button {
+.update-button2, .delete-button3 {
     outline: none !important;
     border: 0;
     box-shadow: none;
@@ -838,6 +839,6 @@ label {
     border-radius: 10px;
     margin-left: 10px;
 }
-.updatesub-button{
-    background: #2D85DE;
+.update-button2{
+    background: #2D85DE !important;
 }

@@ -363,7 +363,7 @@ function createCategory(event) {
     }
 }
 
-// function for category list
+// function to get category list
 function getCatList() {
     const getScrollItem = document.querySelector(".scroll-object");
     const getToken = localStorage.getItem('adminlogin');
@@ -648,37 +648,47 @@ function subCategory(event) {
 }
 
 
-// function for creating subcategory list
-function createSublist(){
-    const getsublist = document.querySelector(".scroller-boxs");
+// function to get subcategory list
+function getSublist(){
+    const params = new URLSearchParams(window.location.search);
+    let getId = params.get('id');
+    const getSublist = document.querySelector(".scroll-objects");
     const getlistitems = localStorage.getItem('adminlogin');
     const tokens = JSON.parse(getlistitems);
     const getlist = tokens.token;
+    
 
-    const subcatHeader = new Headers();
-    subcatHeader.append("Authorization", `Bearer ${getlist}`);
+    const subcatHeaders = new Headers();
+    subcatHeaders.append("Authorization", `Bearer ${getlist}`);
 
     const dashReq = {
         method: 'GET',
-        headers: subcatHeader
-    };
+        headers: subcatHeaders
+    }
 
-    const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/subcategory_list";
+    let data = [];
+
+    const url = `http://pluralcodesandbox.com/yorubalearning/api/admin/category_details/${getId}`;
 
     fetch(url, dashReq)
     .then(response => response.json())
     .then(result => {
         console.log(result)
-        result?.map((item) => {
+        result.map((item) => {
             data += `
             <div class="search-card2">
               <a href="details.html?id=${item.id}&name=${item.name}"><img src=${item.image} alt="image" /></a>
               <p>${item.name}</p>
+              <div class="text-right">
+                <button class="update-button2" onclick="updatesubcat(${item.id})">Update</button>
+                <button class="delete-button3" onclick="deletesubcat(${item.id})">Delete</button>
+              </div>
             </div>
             `
-            getsublist.innerHTML = data;
+            getSublist.innerHTML = data;
         })
+        
     })
     .catch(error => console.log('error', error));
 }
-createSublist();
+getSublist();
