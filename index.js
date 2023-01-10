@@ -453,12 +453,6 @@ function changeimage(){
 
 }
 
-
-
-// function to close modal
-
-
-
 // function to close upmodal
 function lockmodal(){
     let pop = document.querySelector('.updateform');
@@ -696,8 +690,12 @@ function getSublist(){
 getSublist();
 
 
+
+
+
+
 // function to update a subcategory
-function UpdateSubCategory(event){
+function UpdatesubCategory(event){
     event.preventDefault();
 
     const catsubname = document.getElementById("updatesubcatname").value;
@@ -795,12 +793,4 @@ function updatesubcat(newId) {
 function cutmodal() {
     const cut = document.querySelector(".updatesubcatform");
     cut.style.display = 'none';
-}
-// function close subcategory form modal outside
-
-window.onclick = function outsideClick(e) {
-    const cut = document.querySelector(".updatesubcatform");
-    if (e.target == cut) {
-        cut.style.display = 'none';
-    }
 }

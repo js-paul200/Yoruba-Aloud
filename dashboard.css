@@ -802,7 +802,6 @@ label {
 @media screen and (max-width: 800px) {
     .subname{
         width: 80%;
-        display: block;
     }
     
 }
@@ -907,19 +906,13 @@ label {
         margin-top: 9rem;
         height: 80vh;
     }
-    .desk{
-        width: 100%;
-    }    
+    
 }
 
 @media screen and (min-width: 700px) and (max-width: 1000px) {
     .update-subinput {
         width: 80%;
         margin-top: 1rem;
-    }
-    .desk{
-        width: 80%;
-        
     }
     
 }
