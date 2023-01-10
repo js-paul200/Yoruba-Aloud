@@ -805,6 +805,8 @@ label {
 }
 /* sub category list card */
 .scroll-boxs {
+    /* display: flex;
+    flex-direction: column; */
     width: 60vw;
     align-items: center;
     margin-left: 9rem;
@@ -818,7 +820,7 @@ label {
     overflow-y: scroll;
 }
 .search-card2{
-    width: 100%;
+    width: 40%;
     border-radius: 20px;
     padding: 20px 15px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -829,7 +831,8 @@ label {
     width: 100%
 }
 
-.update-button2, .delete-button3 {
+.update-button2 {
+    background: #2D85DE !important;
     outline: none !important;
     border: 0;
     box-shadow: none;
@@ -839,6 +842,4 @@ label {
     border-radius: 10px;
     margin-left: 10px;
 }
-.update-button2{
-    background: #2D85DE !important;
-}
+

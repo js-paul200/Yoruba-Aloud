@@ -681,7 +681,7 @@ function getSublist(){
               <p>${item.name}</p>
               <div class="text-right">
                 <button class="update-button2" onclick="updatesubcat(${item.id})">Update</button>
-                <button class="delete-button3" onclick="deletesubcat(${item.id})">Delete</button>
+
               </div>
             </div>
             `
