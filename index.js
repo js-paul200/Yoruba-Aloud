@@ -864,5 +864,63 @@ function updateprofile(event){
 function updatepassword(event) {
     event.preventDefault();
 
-    const updatemail = 
+    const updateemail = document.getElementById("updateemailladd").value;
+    const newpass = document.getElementById("updatePassadd").value;
+    const confirm = document.getElementById("confirmPass").value;
+
+    if (updateemail === "" || newpass === "" || confirm === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required!',
+            confirmButtonColor: '#2D85DE'
+        });
+    }
+
+    if (confirm !== newpass) {
+        Swal.fire({
+            icon: 'warning',
+            text: 'Passwords does not match!',
+            confirmButtonColor: '#2D85DE'
+        })
+    }
+    else{
+        const fanspin = document.querySelector(".spinpass");
+        fanspin.style.display = "inline-block";
+
+        const plot1 = localStorage.getItem("adminlogin");
+        const plot2 = JSON.parse(plot1);
+        const plot3 = plot2.token;
+
+        const passhead = new Headers();
+        passhead.append("Authorization", `Bearer ${plot3}`);
+
+        const passitem = new FormData();
+        passitem.append("email", updateemail );
+        passitem.append("password", newpass);
+        passitem.append("password_confirmation",confirm);
+
+        const dashReq = {
+            method: 'POST',
+            headers: passhead,
+            body: passitem
+        };
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/admin_update_password";
+
+        fetch(url, dashReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if (result.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+            setTimeout(()=> {
+                window.location.href = "index.html";
+            }, 5000);
+        })
+        .catch(error => console.log('error', error));
+    }
 }
