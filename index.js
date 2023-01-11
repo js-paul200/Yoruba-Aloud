@@ -695,7 +695,7 @@ getSublist();
 
 
 // function to update a subcategory
-function UpdatesubCategory(event){
+function UpdateSubCategory(event){
     event.preventDefault();
 
     const catsubname = document.getElementById("updatesubcatname").value;
@@ -793,4 +793,76 @@ function updatesubcat(newId) {
 function cutmodal() {
     const cut = document.querySelector(".updatesubcatform");
     cut.style.display = 'none';
+}
+// function to close subcategory form modal outside
+window.onclick = function outsideClick(e) {
+    const form = document.querySelector(".updatesubcatform");
+    if (e.target == form) {
+        form.style.display = "none";
+    }
+}
+
+
+
+
+
+// function to update admin-profile
+function updateprofile(event){
+    event.preventDefault();
+    const profname = document.getElementById('updatename').value;
+    const profemail = document.getElementById('updatename').value;
+
+    if (profname === "" || profemail === "") {
+        Swal.fire({
+            icon: 'info',
+            text: 'All fields are required!',
+            confirmButtonColor: '#2D85DE'
+        });
+    }
+    else {
+        const profspin = document.querySelector(".adspin");
+        profspin.style.display = "inline-block";
+
+        const first = localStorage.getItem("adminlogin");
+        const second = JSON.parse(first);
+        const third = second.token;
+
+        const profheader = new Headers();
+        profheader.append("Authorization", `Bearer ${third}`);
+
+        const profiledata = new FormData();
+        profiledata.append("name", profname);
+        profiledata.append("email", profemail);
+
+        const dashReq = {
+            method: 'POST',
+            headers: profheader,
+            body: profiledata
+        };
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/admin_update_profile";
+        fetch(url, dashReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            if(result.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    text: `${result.message}`,
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+
+            setTimeout(()=> {
+                window.location.href = "index.html";
+            }, 4000);
+        })
+        .catch(error => console.log('error', error));
+    }
+}
+
+// function to update password 
+function updatepassword(event) {
+    event.preventDefault();
+
+    const updatemail = 
 }

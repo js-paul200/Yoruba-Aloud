@@ -220,7 +220,7 @@ table td {
 .lock{
     color: #fff;
 }
-.spin, .roller, .rol-spin, .subroll{
+.spin, .roller, .rol-spin, .subroll, .adspin, .spinpass{
     display: none;
 }
 
@@ -915,4 +915,70 @@ label {
         margin-top: 1rem;
     }
     
+}
+
+/* style for admin profile */
+.profile-form{
+    width: 70%;
+    margin: 5% auto;
+    background: transparent;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
+}
+.prof{
+    color: #2D85DE;
+    font-weight: bold;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.button-admin{
+    width: 100%;
+    background-color: #2D85DE;
+    color: #fff;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    font-family: "Short Stack", sans-serif;
+}
+/* style for pass form */
+.passform{
+    width: 70%;
+    margin: 5% auto;
+    background: transparent;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
+}
+.pass{
+    color: #2D85DE;
+    font-weight: bold;
+}
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.button-pass{
+    width: 100%;
+    background-color: #2D85DE;
+    color: #fff;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    font-family: "Short Stack", sans-serif;
+}
+/* media query for both admin profile and password form */
+@media screen and (max-width: 650px){
+.profile-form {
+    width: 100%;
+}
+.passform{
+    width: 100%;
+}
 }
