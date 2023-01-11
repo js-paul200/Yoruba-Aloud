@@ -919,8 +919,21 @@ function updatepassword(event) {
             }
             setTimeout(()=> {
                 window.location.href = "index.html";
-            }, 5000);
+            }, 3000);
         })
         .catch(error => console.log('error', error));
     }
+}
+// function to logout
+function logout(){
+    const lockout = localStorage.clear();
+    Swal.fire({
+        icon: 'success',
+        text: 'logout Successful',
+        confirmButtonColor: '#2D85DE'
+    })
+    setTimeout(()=> {
+      location.href = "index.html";
+    }, 3000);
+
 }
