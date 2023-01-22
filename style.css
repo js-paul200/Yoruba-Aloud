@@ -17,6 +17,7 @@ body {
 .row {
     margin: 0;
     height: 100vh;
+    overflow-x: hidden;
 }
 .space {
     background-color: #2D85DE;

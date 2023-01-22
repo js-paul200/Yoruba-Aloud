@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boot-strap cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <!-- line awesome cdn -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <link rel="stylesheet" href="dashboard.css">
+    <title>Learning Category</title>
+</head>
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar bg-dark">
+       <div class="sidebar-name">
+       Yoruba Aloud
+       </div>
+
+       <!-- side bar section begin -->
+       <div class="sidebar-content">
+        <ul>
+             <li>
+              <a href="dashboard.html"><span class="lar la-chart-bar" style="color: #b6cc00;"></span><span>Dashboard</span></a>
+             </li>
+             <li>
+                <a href="category.html" style="text-decoration: none;"><span class="las la-layer-group" style="color: #b6cc00;"></span><span>Categories</span></a>
+               </li>
+             <li>
+              <a href="learning.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Learning Materials</span></a>
+             </li>
+             <li>
+                 <a href="quiz.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Quiz</span></a>
+             </li>
+             <li>
+                 <a href="admin.html" style="text-decoration: none;"><span class="las la-file-upload" style="color: #b6cc00;"></span><span>Admin Profile</span></a>
+             </li>
+             <li>
+              <a onclick="logout(event)" style="text-decoration: none;"><span class="las la-lock" style="color: #b6cc00;"></span>
+                 <span class="lock">
+                     Logout
+                 </span></a>
+             </li>
+        </ul>
+     </div>
+     </div>
+     <!-- side bar section ends -->
+
+     <!-- main section begins -->
+    <div class="main-section">
+        <header>
+         <h2>
+             <label for="nav-toggle">
+                 <span class="las la-bars"></span>
+             </label>
+             <span id="adminId"></span>
+             Learning Category
+         </h2>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light-color">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Categories
+                      </a>
+                      <ul class="dropdown-menu dropdown-submenu-mat">
+                        <div class="scrolls">
+                          <div class="scroll-learn">
+                            <div class="scroll-in">
+                                
+                            </div>
+                            <div id="nav-learn"></div>
+                          </div>
+                        </div>
+                      </ul>
+                  </li>
+                </ul>
+              </div>
+              </nav>
+            <button class="create-learn" onclick="displaylearnmodal()">Create Learning Materials</button>
+         </header>
+
+         <main>
+            <div class="scroll-cont">
+              <div class="scroll-math">
+                <div class="scroll-obj">
+                  <div class="content-over">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="learn-modal" class="learningmodal">
+                <div class="modal-learn">
+                  <div class="learn-header">
+                    <h3 class="learn-head">Create Learning Categories</h3>
+                      <span class="close" onclick="closeModal2()">&times;</span>
+                  </div>
+                  <div class="learn-body">
+                    <center>
+                      <button class="default" onclick="learndefault()">Default</button>
+                      <button class="reader" onclick="read()">Reading</button>
+                      <button class="conversation" onclick="conversation()">Conversation</button>
+                    </center>
+                    <form class="reading">
+                      <input type="text" name="title" id="title" class="input mb-3" placeholder="Enter Name">
+                      <label for="imagefile" class="font-mulish font-size-16 font-weight-600">Enter Images</label>
+                      <input type="file" name="img1" id="img1" class="input mb-3" placeholder="Enter Image">
+                      <label for="audiofile" class="font-mulish font-size-16 font-weight-600">Enter Audio file</label>
+                      <input type="file" name="audio" id="audio" class="input mb-3" placeholder="Enter Audio">
+                      <button class="button button-read font-weight-700" onclick="createlearndefault(event)">
+                        <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                          <span class="sr-only"></span>
+                        </div>
+                        Create Reading
+                      </button>
+                    </form>
+                  </div>
+                </div>
+            </div>
+    
+         </main>
+
+
+
+    
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- javascript -->
+    <script src="index.js"></script>
+    <script src="auth.js"></script>
+       
+</body>
+</html>

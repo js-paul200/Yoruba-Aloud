@@ -775,7 +775,7 @@ form{
     box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
 }
 .subcatform{
-    padding: 1rem 1rem;
+    padding: 3rem 3rem;
 }
 label {
     display: inline-block;
@@ -799,12 +799,18 @@ label {
 
 }
 /* media query */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 992px) {
     .subname{
-        width: 80%;
+        width: 100%;
     }
-    
+    .scroll-boxs{
+        width: 70%;
+
+    }
 }
+
+
+
 
 /* sub category list card */
 .scroll-boxs {
@@ -982,3 +988,116 @@ label {
     width: 100%;
 }
 }
+
+/* Learning Category styles */
+
+.dropdown-menu .dropdown-submenu-mat {
+    right: 100%;
+    left: auto;
+}
+.dropdown-menu {
+    background-color: #fff;
+}
+.modal-learn{
+    margin: 10% auto;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+
+}
+.learn-header{
+    display: flex;
+    justify-content: space-between;
+    background: #2D85DE;
+    padding: 20px;
+    color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.learn-body{
+    margin: 2rem;
+}
+.close{
+    font-size: 30px;
+}
+.close:hover{
+    color: #2D85DE;
+}
+.scroll-cont {
+    margin: 5% auto;
+    padding: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border-radius: 20px;
+}
+.container-over {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.scroll-math {
+    height: 400px;
+    overflow-y: scroll;
+}
+.scroll-learn{
+    margin: 5% auto;
+    padding: 20px;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border-radius: 20px;
+}
+.scroll-in {
+    height: 200px;
+}
+#nav-learn {
+    padding: 20px;
+}
+.create-learn{
+    outline: none;
+    box-shadow: none;
+    border: 0;
+    background-color: #2D85DE;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+.create-learn:hover{
+    background: #8bb0d4;
+}
+.default, .conversation{
+  border: 0;
+  outline: 0;
+  padding: 1rem 0.9rem;
+  margin: 1rem;
+  border-radius: 5px;
+  background: #2D85DE;
+  color: #fff;
+}
+.reader{
+    background: #2D85DE;
+    border: 0;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: #FFF;
+}
+.button-read{
+    width: 100%;
+    background-color: #2D85DE;
+    color: #fff;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    font-family: "Short Stack", sans-serif;
+}
+@media screen and (max-width: 650px){
+    .modal-learn{
+        width: 100%;
+    }
+    .learn-body{
+        width: 80%;
+    }
+}
+
+

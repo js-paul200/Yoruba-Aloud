@@ -621,7 +621,7 @@ function subCategory(event) {
             if (result.status === "success") {
                 Swal.fire({
                     icon: 'success',
-                    text: 'subcategory created successfully',
+                    text: 'Subcategory Created Successfully',
                     confirmButtonColor: '#2D85DE'
                 })
                 setTimeout(() => {
@@ -742,7 +742,7 @@ function UpdateSubCategory(event){
             if (result.status === "success") {
                 Swal.fire({
                     icon: 'success',
-                    text: 'Subcategory Updated successfully',
+                    text: 'Subcategory Updated Successfully',
                     confirmButtonColor: '#2D85DE'
                 })
                 setTimeout(() => {
