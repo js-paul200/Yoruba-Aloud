@@ -12,7 +12,7 @@ function signUp(event) {
 
     if (getName === "" || getEmail === "" || getPassword === "" || getConfirmPassword === "") {
         Swal.fire({
-            icon: 'warning',
+            icon: 'info',
             text: 'All fields are required',
             confirmButtonColor: '#2d85de',
         })
@@ -924,6 +924,110 @@ function updatepassword(event) {
         .catch(error => console.log('error', error));
     }
 }
+// function to display learning material modal
+function displaylearnmodal() {
+    const learnform = document.querySelector(".learningmodal");
+    learnform.style.display = "block";
+
+}
+// function to close learning material modal
+function closemode() {
+    const close = document.querySelector(".learningmodal");
+    close.style.display = 'none';
+}
+
+
+// function to switch forms
+function learndefault() {
+const defaultform = document.querySelector(".Default");
+const readform = document.querySelector(".reading");
+const voiceform = document.querySelector(".convo");
+
+    const defer = document.querySelector(".default");
+    const book = document.querySelector(".read");
+    const talk = document.querySelector(".conversation");
+
+    defaultform.style.display = "block";
+    readform.style.display = "none";
+    voiceform.style.display = "none";
+    defer.style.backgroundColor = "#2D85DE";
+    defer.style.border = "1px solid #000";
+    defer.style.color = "#fff";
+    book.style.backgroundColor = "#fff";
+    book.style.color = "#2D85DE";
+    talk.style.backgroundColor = "#fff";
+    talk.style.color = "#2D85DE";
+    
+}
+function read(){
+    const defaultform = document.querySelector(".Default");
+    const readform = document.querySelector(".reading");
+    const voiceform = document.querySelector(".convo");
+
+    const book = document.querySelector(".read");
+    const defer = document.querySelector(".default");
+    const talk = document.querySelector(".conversation");
+
+    readform.style.display = "block";
+    voiceform.style.display = "none";
+    defaultform.style.display = "none";
+
+    defer.style.backgroundColor = "#fff";
+    defer.style.color = "#2D85DE";
+    book.style.backgroundColor = "#2D85DE";
+    book.style.color = "#fff";
+    book.style.border = "1px solid #000";
+    talk.style.backgroundColor = "#fff";
+    talk.style.color = "#2D85DE";
+    
+}
+
+function conversation(){
+    // function to switch forms
+    const defaultform = document.querySelector(".Default");
+    const readform = document.querySelector(".reading");
+    const voiceform = document.querySelector(".convo");
+
+    const defer = document.querySelector(".default");
+    const book = document.querySelector(".read");
+    const talk = document.querySelector(".conversation");
+
+    voiceform.style.display = "block";
+    defaultform.style.display = "none";
+    readform.style.display = "none";
+
+    defer.style.backgroundColor = "#fff";
+    defer.style.color = "#2D85DE";
+    book.style.backgroundColor = "#fff";
+    book.style.color = "#2D85DE";
+    talk.style.backgroundColor = "#2D85DE";
+    talk.style.border = "1px solid #000";
+    talk.style.color = "#fff";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function to logout
 function logout(){
     const lockout = localStorage.clear();

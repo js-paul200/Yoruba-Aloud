@@ -15,9 +15,8 @@
 
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar bg-dark">
-       <div class="sidebar-name">
-       Yoruba Aloud
-       </div>
+      <div class="sidebar-name">Yoruba Aloud<img src="/assets/yorubalogo.png" alt="yourbaaloud logo"></a></div> 
+       
 
        <!-- side bar section begin -->
        <div class="sidebar-content">
@@ -83,7 +82,7 @@
                 </ul>
               </div>
               </nav>
-            <button class="create-learn" onclick="displaylearnmodal()">Create Learning Materials</button>
+            <button class="create-learn" onclick="displaylearnmodal()">Create</button>
          </header>
 
          <main>
@@ -97,47 +96,72 @@
             </div>
 
             <div id="learn-modal" class="learningmodal">
-                <div class="modal-learn">
+                <div class="learn-input">
                   <div class="learn-header">
                     <h3 class="learn-head">Create Learning Categories</h3>
-                      <span class="close" onclick="closeModal2()">&times;</span>
+                      <span class="close" onclick="closemode()">&times;</span>
                   </div>
                   <div class="learn-body">
                     <center>
                       <button class="default" onclick="learndefault()">Default</button>
-                      <button class="reader" onclick="read()">Reading</button>
+                      <button class="read" onclick="read()">Reading</button>
                       <button class="conversation" onclick="conversation()">Conversation</button>
                     </center>
+
+
+                    <form class="Default">
+                      <input type="text" id="dftext" class="input mb-3" placeholder="Enter Name">
+                      <label for="imagefile" class="font-mulish font-size-16 font-weight-400">Enter Images</label>
+                      <input type="file" id="pics" class="input mb-3" placeholder="Enter Image">
+                      <label for="audiofile" class="font-mulish font-size-16 font-weight-400">Enter Audio file</label>
+                      <input type="file" id="music" class="input mb-3" placeholder="Enter Audio">
+                      <button class="button button-read font-weight-700" onclick="createDefault(event)">
+                        <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                          <span class="sr-only"></span>
+                        </div>
+                        Create Default
+                      </button>
+                    </form>
+
                     <form class="reading">
-                      <input type="text" name="title" id="title" class="input mb-3" placeholder="Enter Name">
-                      <label for="imagefile" class="font-mulish font-size-16 font-weight-600">Enter Images</label>
-                      <input type="file" name="img1" id="img1" class="input mb-3" placeholder="Enter Image">
-                      <label for="audiofile" class="font-mulish font-size-16 font-weight-600">Enter Audio file</label>
-                      <input type="file" name="audio" id="audio" class="input mb-3" placeholder="Enter Audio">
-                      <button class="button button-read font-weight-700" onclick="createlearndefault(event)">
+                      <input type="text" id="dftext" class="input mb-3" placeholder="Enter Name">
+                      <label for="imagefile" class="font-mulish font-size-16 font-weight-400">Enter Images</label>
+                      <input type="file" id="pics" class="input mb-3" placeholder="Enter Image">
+                      <label for="audiofile" class="font-mulish font-size-16 font-weight-400">Enter Audio file</label>
+                      <input type="file" id="music" class="input mb-3" placeholder="Enter Audio">
+                      <button class="button button-read font-weight-700" onclick="createreading(event)">
                         <div class="spinner-border spinner-border-sm text-light spin" role="status">
                           <span class="sr-only"></span>
                         </div>
                         Create Reading
                       </button>
                     </form>
+                       
+                    
+                    <form class="convo">
+                      <input type="text"  id="eq" class="input mb-3" placeholder="Enter English question">
+                      <input type="text" id="yq" class="input mb-3" placeholder="Enter Yoruba question">
+                      <input type="text" id="ea" class="input mb-3" placeholder="Enter English answer">
+                      <input type="text" id="ya" class="input mb-3" placeholder="Enter Yoruba answer">
+                      <label for="audiofile" class="font-mulish font-size-16 font-weight-400">Enter Image file</label>
+                      <input type="file" id="loud1" class="input mb-3">
+                      <label for="audiofile" class="font-mulish font-size-16 font-weight-400">Enter Audio file</label>
+                      <input type="file" id="loud2" class="input mb-3">
+                      <button class="button button-read font-weight-400" onclick="createconvo(event)">
+                        <div class="spinner-border spinner-border-sm text-light spin" role="status">
+                          <span class="sr-only"></span>
+                        </div>
+                        Create Conversation
+                      </button>
+                    </form>
                   </div>
                 </div>
             </div>
-    
          </main>
 
 
 
-    
-
-
-
-
-
-
-
-
+  
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

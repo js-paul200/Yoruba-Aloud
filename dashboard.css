@@ -22,7 +22,7 @@ body {
     left: 0;
     top: 0;
     height: 100%;
-    background-color: #2D85DE !important;
+    background-color: #4f93d7 !important;
     z-index: 100;
     transition: width 300ms;
 }
@@ -62,6 +62,11 @@ body {
     padding-bottom: 1rem;
     border-radius: 30px 0 0 30px;
 }
+
+.sidebar img {
+    width: 40px;
+}
+
 
 .sidebar-content a span:first-child {
     font-size: 1.5rem;
@@ -998,12 +1003,16 @@ label {
 .dropdown-menu {
     background-color: #fff;
 }
-.modal-learn{
-    margin: 10% auto;
-    width: 70%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
 
+.learningmodal{
+    margin: 10% auto;
+    width: 60%;
+    overflow: auto;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    display: none;
+ 
 }
+
 .learn-header{
     display: flex;
     justify-content: space-between;
@@ -1012,6 +1021,14 @@ label {
     color: #fff;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
+}
+.reading, .Default, .convo{
+    width: 70%;
+    margin: 5% auto;
+    background: transparent;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 56px, rgb(17 17 26 / 10%) 0px 24px 80px;
 }
 .learn-body{
     margin: 2rem;
@@ -1064,7 +1081,7 @@ label {
 .create-learn:hover{
     background: #8bb0d4;
 }
-.default, .conversation{
+.default{
   border: 0;
   outline: 0;
   padding: 1rem 0.9rem;
@@ -1073,13 +1090,20 @@ label {
   background: #2D85DE;
   color: #fff;
 }
-.reader{
-    background: #2D85DE;
-    border: 0;
+.read,.conversation{
+    border: 1px solid #000;
     padding: 1rem 2rem;
+    margin: 1rem;
     border-radius: 5px;
-    color: #FFF;
+    color: #000;
 }
+.read:hover{
+    background-color: #5c9edf;
+}
+.conversation:hover{
+    background: #5c9edf;
+}
+
 .button-read{
     width: 100%;
     background-color: #2D85DE;
@@ -1091,13 +1115,31 @@ label {
     font-size: 18px;
     font-family: "Short Stack", sans-serif;
 }
-@media screen and (max-width: 650px){
-    .modal-learn{
-        width: 100%;
+.reading, 
+.convo
+{
+    display: none;
+}
+@media screen and (max-width: 650px) {
+    .learn-input {
+        width: 100% !important;  
     }
-    .learn-body{
-        width: 80%;
+    .learningmodal{
+        width: 100% !important;
+    }
+    .reading, .Default, .convo{
+        width: 100% !important;
     }
 }
 
-
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .learn-input {
+        width: 100% !important; 
+    }
+    .learningmodal{
+        width: 100% !important;
+    }
+    .reading, .Default, .convo{
+        width: 100% !important;
+    }
+}
