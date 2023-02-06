@@ -66,6 +66,16 @@ input, input:focus {
 .button-blue:hover{
     background: rgba(15, 191, 250, 0.765);
 }
+.refer{
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.refer p, a{
+    font-size: 18px;
+    font-weight: 400;
+}
+
 #spin{
     display: none;
 }
