@@ -760,8 +760,9 @@ form{
 @media screen and (min-width: 700px) and (max-width: 1000px) {
     .update-input {
         width: 80%;
-        margin-top: 1rem;
+        margin-top: 9rem;
     }
+
     /* media query for modal ends here */
 }
 
