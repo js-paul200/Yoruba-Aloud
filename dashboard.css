@@ -773,7 +773,7 @@ form{
 /* subcategory form */
 .subname {
     width: 65%;
-    height: 50vh;
+    height: 52vh;
     margin: 5% auto;
     background: transparent;
     padding: 6px;
@@ -808,12 +808,14 @@ label {
 @media screen and (max-width: 992px) {
     .subname{
         width: 100%;
+        overflow: hidden;
     }
     .scroll-boxs{
         width: 70%;
-
     }
 }
+
+
 
 
 
@@ -822,7 +824,7 @@ label {
 .scroll-boxs {
     width: 60vw;
     align-items: center;
-    margin-left: 5rem;
+    margin-left: 0rem;
     padding: 20px;
     box-shadow: rgba(150, 150, 165, 0.5) 0px 7px 29px 0px;
     border-radius: 20px;
@@ -853,9 +855,17 @@ label {
     border-radius: 10px;
     margin-left: 10px;
 }
-@media screen and (max-width: 850px){
+@media screen and (max-width: 650px){
     .scroll-boxs{
         width: 100%;
+    }
+    /* .subcatform{
+        width: 100%;
+    } */
+}
+@media screen and (min-width: 700px) and (max-width: 1000px) {
+    .scroll-boxs{
+        width: 70%;
     }
 }
 
@@ -989,9 +999,11 @@ label {
 @media screen and (max-width: 650px){
 .profile-form {
     width: 100%;
+    overflow: hidden;
 }
 .passform{
     width: 100%;
+    overflow: hidden;
 }
 }
 
