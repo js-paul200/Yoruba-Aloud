@@ -69,12 +69,12 @@ input, input:focus {
 .refer,
 .red{
     display: flex;
-    gap: 0.3rem;
+    gap: 1rem;
     margin-top: 3rem;
 }
 .refer, .red p, a{
-    font-size: 18px;
-    font-weight: 400;
+    font-size: 19px;
+    font-weight: 500;
 }
 
 #spin{
