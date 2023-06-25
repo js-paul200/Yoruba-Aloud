@@ -1006,28 +1006,6 @@ function conversation(){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function to logout
 function logout(){
     const lockout = localStorage.clear();
