@@ -131,13 +131,13 @@ var modalBtn = document.getElementById('modal-Btn');
 
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
-modalBtn.addEventListener('click', openmodal);
+modalBtn.addEventListener('click', studentmodal);
 
 closeBtn.addEventListener('click', closemodal);
 
 window.addEventListener('click', outsideclick);
 
-function openmodal(){
+function studentmodal(){
     modal.style.display = 'block';
 }
 
@@ -1004,6 +1004,176 @@ function conversation(){
     talk.style.border = "1px solid #000";
     talk.style.color = "#fff";
 }
+
+// function for creating learning materials
+let uniId; // Global storage for sub_category
+function learningMat(subcatId) {
+    const Readlearn = document.querySelector(".learningboard");
+    const learn = localStorage.getItem('adminlogin');
+    const learnbook = JSON.parse(learn);
+    const getLearn = learnbook.token;
+
+    uniId = subcatId;
+    console.log(uniId);
+
+
+    const learnerHeaders = new Headers();
+    learnerHeaders.append("Authorization", `Bearer ${getLearn}`);
+
+    const learnReq = {
+        method: 'GET',
+        headers: learnHeaders
+    };
+
+    const url = `https://pluralcodesandbox.com/yorubalearning/api/admin/list_all_learning_materials?subcategory_id=`+subcatId;
+
+    fetch(url, learnReq)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        Readlearn.innerHTML = " ";
+        result.map((item) => {
+            if (item.type === "default") {
+                return getRec.innerHTML += `
+                <div class="searchcard">
+                <div class="searchcard-image">
+                    <img src=${item.image_file}>
+                </div>
+                <div class="searchcard-info">
+                    <h4 class="text-col">${item.title}</h4>
+                    <audio controls>
+                        <source src=${item.audio_file} type="audio/mp3">
+                    </audio>
+                    <button class="update-button" onclick="openDefault(${item.id})">Update</button>
+                    <button class="delete-button" onclick="deleteDefault(${item.id})">Delete</buton>
+                </div>
+                </div>
+            `
+            }
+            else if (item.type === "conversation") {
+                return getRec.innerHTML += `
+                <div class="searchcard">
+                    <div class="searchcard-image">
+                      <img src=${item.image_file}>
+                    </div>
+                    <div class="searchcard-info">
+                      <hr>
+                      <p><span class="clent">Ques:</span> ${item.conversation_english_question}</p>
+                      <p><span class="clent">Ans:</span> ${item.conversation_english_answer}</p>
+                      <hr>
+                      <p><span class="clent">Ques:</span> ${item.conversation_yoruba_question}</p>
+                      <p><span class="clent">Ans:</span> ${item.conversation_yoruba_answer}</p>
+                      <hr>
+                      <audio controls>
+                        <source src=${item.conversation_audio_question_inyoruba} type="audio/mp3">
+                      </audio>
+                      <audio controls>
+                        <source src=${item.conversation_audio_answer_inyoruba} type="audio/mp3">
+                      </audio>
+                      <button class="update-button" onclick="openConver(${item.id})">Update</button>
+                      <button class="delete-button" onclick="deleteConver(${item.id})">Delete</buton>
+                    </div>
+                </div>
+                `
+            }
+            
+            else {
+                return getRec.innerHTML += `
+                <div class="searchcard">
+                    <div class="searchcard-image">
+                        <img src=${item.image_file}>
+                    </div>
+                    <div class="searchcard-info">
+                        <p>${item.reading_word_in_english}</p>
+                        <hr>
+                        <p>${item.reading_word_in_yoruba}</p>
+                        <audio controls>
+                            <source src=${item.audio_file} type="audio/mp3">
+                        </audio>
+                        <button class="update-button" onclick="readingModal(${item.id})">Update</button>
+                        <button class="delete-button" onclick="deleteRead(${item.id})">Delete</buton>
+                    </div>
+                </div>    
+              `
+            }
+        })
+
+    })
+    .catch(error => console.log('error', error));
+}
+
+// function to create default learning
+function createDefault(event) {
+    event.preventDefault();
+    let uniId;
+
+    const dftext = document.getElementById("dftext").value;
+    const defpics = document.getElementById("pics").files[0];
+    const defmusic = document.getElementById("music").files[0];
+
+    if (dftext === "" || defpics === "" || defmusic === "") {
+        Swal.fire({
+            icon: "info",
+            text: "All fields are required",
+            confirmButtonColor: '#2D85DE'
+        });
+    }
+    else {
+        const spinner = document.querySelector(".spin");
+        spinner.style.display = "inline-block";
+
+        const defaultlearn = localStorage.getItem("adminlogin");
+        const getDefaultlearn = JSON.parse(defaultlearn);
+        const defaultlearner = getDefaultlearn.token;
+
+        console.log(uniId);
+
+        const deflearnHeaders = new Headers();
+        deflearnHeaders.append("Authorization", `Bearer ${defaultlearner}`);
+
+        const deflearndata = new FormData();
+        deflearndata.append("dftext", dftext);
+        deflearndata.append("pics", defpics);
+        deflearndata.append("music", defmusic);
+        deflearndata.append("subcategory_id", uniId);
+
+        const defReq = {
+            method: 'POST',
+            headers: deflearnHeaders,
+            body: deflearndata
+        };
+
+        const url = "https://pluralcodesandbox.com/yorubalearning/api/admin/create_defaultlearning";
+        fetch(url, defReq)
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+
+            if (result.status === "success") {
+                location.reload();
+            }else {
+                Swal.fire({
+                    icon: 'info',
+                    text: 'Unsuccessful!',
+                    confirmButtonColor: '#2D85DE'
+                })
+            }
+        })
+        .catch(error => console.log('error', error));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // function to logout
